@@ -5,12 +5,17 @@ const Chart = (props) => {
     // create variable "over" with all the cars whose horsepower is >= 200
     // create variable "under" with all the cars whose horsepower is < 200
 
+    const over = props.cars.filter(car => car.horsepower >= 200)
+    const under = props.cars.filter((car) => car.horsepower < 200);
+
+    // Finally, in components/Chart.js above the return statement, create two variables called "over" and "under". Use the "filter" method to filter the "props.cars" for cars whose horsepower match the criteria. Then use those values in the corresponding Pie Chart. They will be "over.length" and "under.length"
+
     return (
         <div>
             <PieChart style={{ width: '200px' }}
                 data={[
-                    { title: 'Over', value: 10, color: '#C13C37' },
-                    { title: 'Under', value: 15, color: '#E38627' },
+                    { title: 'Over', value: over.length, color: '#C13C37' },
+                    { title: 'Under', value: under.length, color: '#E38627' },
                 ]}
                 label
                 labelStyle={{
